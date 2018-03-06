@@ -5,10 +5,10 @@ module.exports = function(grunt) {
     concat : {
       dist: {
         src: [
-          'js/modules/*.js',
-          'js/main.js'
+          'public/js/modules/*.js',
+          'public/js/main.js'
         ],
-        dest: 'prod/concat.js'
+        dest: 'public/js/prod/concat.js'
       }
     },
 
@@ -19,15 +19,15 @@ module.exports = function(grunt) {
       },
     dist: {
       files: {
-                'prod/production.js' : 'prod/concat.js'
+                'public/js/prod/production.js' : 'public/js/prod/concat.js'
           }
       }
     },
 
     uglify : {
       build: {
-        src: 'prod/production.js',
-        dest: 'prod/production.min.js'
+        src: 'public/js/prod/production.js',
+        dest: 'public/js/prod/production.min.js'
       }
     },
 
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
           noCache: true
         },
         files : {
-          'css/main.css' : 'sass/main.scss'
+          'public/css/main.css' : 'public/css/sass/main.scss'
         }
       }
     },
@@ -57,30 +57,30 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'css/main.css'
+        src: 'public/css/main.css'
       }
     },
     imagemin: {
           dynamic: {
               files: [{
                   expand: true,
-                  cwd: 'img/',
+                  cwd: 'images/',
                   src: ['*.{png,jpg,gif}'],
-                  dest: 'img/prod/'
+                  dest: 'images/prod/'
               }]
           }
       },
 
     watch : {
       scripts : {
-        files : ['js/main.js', 'js/modules/*.js'],
+        files : ['public/js/main.js', 'public/js/modules/*.js'],
         tasks : ['concat', 'babel', 'uglify'],
         options : {
           spawn : false
         }
       },
       sass: {
-        files: ['scss/*.scss'],
+        files: ['public/css/sass/*.scss'],
         tasks: ['sass','postcss'],
         options: {
             spawn: false,

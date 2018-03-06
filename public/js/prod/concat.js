@@ -41,5 +41,6 @@ myApp.module2 = {
   }
 
   myFunc();
+  console.log('hi');
 
 })();
