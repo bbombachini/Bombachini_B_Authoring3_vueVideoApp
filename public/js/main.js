@@ -14,5 +14,6 @@
   }
 
   myFunc();
+  console.log('hi');
 
 })();
