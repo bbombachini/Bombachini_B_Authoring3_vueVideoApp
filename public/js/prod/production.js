@@ -27,20 +27,21 @@ myApp.module2 = {
 };
 
 (function () {
-  myApp.mainGreeting();
+  if (document.querySelector('.options')) {
+    var getMovies = function getMovies() {
+      var url = 'movies';
 
-  myApp.module1.saySomething('sup, yo!');
+      fetch(url).then(function (resp) {
+        return resp.json();
+      }).then(function (data) {
+        console.log(data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    };
 
-  function myFunc() {
-    var theHeading = document.querySelector('h1');
+    var movies = document.querySelector('.movies');
 
-    theHeading.textContent = myApp.mainMessage;
+    movies.addEventListener('click', getMovies, false);
   }
-
-  function someOtherFunc() {
-    // stub
-  }
-
-  myFunc();
-  console.log('hi');
 })();

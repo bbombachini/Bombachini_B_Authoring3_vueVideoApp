@@ -3,7 +3,7 @@ var config = {
   password: "root",
   port: 8889,
   host: "localhost",
-  database: "db_livebeyond",
+  database: "db_videoapp",
 }
 
 module.exports = config;
