@@ -1,13 +1,26 @@
 <section class="kids-section">
-  <h2>Movies</h2>
+  <h1>Movies</h1>
+
+  <fieldset>
+    <label for="input">Select category:</label>
+      <select class="select">
+          <option value="0">All</option>
+        <!-- WHY EACH DOESNT WORK HERE?? -->
+        <!-- {{#each genre}}
+          <option value="{{ genre_id }}">{{ genre_name }}</option>
+        {{/each}} -->
+    </select>
+  </fieldset>
   <div id="movies">
   {{#each movies}}
-    <div class="movie-cover">
+    <div id="{{ movies_id }}" class="movie-cover">
       <h4>{{ movies_title }}</h4>
       <img src="images/{{ movies_cover }}" alt="{{ movies_title }}">
     </div>
   {{/each}}
-
-
   </div>
+
 </section>
+<div class="lightbox">
+
+</div>

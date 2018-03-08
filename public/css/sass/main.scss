@@ -11,7 +11,12 @@
 
 body {
   width: 100%;
+}
+
+#main-container {
   min-height: 100vh;
+  width: 100%;
+  position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background: rgb(98,53,147); /* Old browsers */
@@ -34,7 +39,8 @@ header{
   display: flex;
   flex-direction: row;
   height: 100px;
-  justify-content: space-around;
+  padding: 10px 30px;
+  justify-content: space-between;
   align-content: center;
   img{
     width: 8%;
@@ -121,13 +127,14 @@ header{
   h1,h2{
     font-family: $title;
     color: $gray;
-    padding: 20px;
   }
   h1 {
     font-size: 2.5rem;
+    padding: 50px;
   }
   h2 {
     font-size: 1.4rem;
+    padding: 20px;
   }
   .options{
     width: 100%;
@@ -151,11 +158,115 @@ header{
       }
     }
   }
+  label {
+    font-family: $text;
+    color: $lightgray;
+    font-size: 1.1rem;
+  }
 }
 
 #movies{
   text-align: center;
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 3px solid $yellow;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   .movie-cover{
+    position: relative;
+    h4{
+      position: absolute;
+      font-family: $title;
+      background-color: $purple;
+      color: #fff;
+      top: 50%;
+      width: 0;
+      height: 15%;
+      line-height: 35%;
+      text-align: center;
+      font-size: -80rem;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+    img{
+      width: 100%;
+    }
+  }.movie-cover:hover{
+    h4{
+      width: 100%;
+      opacity: 1;
+      font-size: 2rem;
+    }
+  }
+}
 
+.no-scroll {
+  overflow:hidden;
+}
+
+.lightbox{
+  z-index: 100;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.9);
+  #light-wrapper{
+    padding: 50px 0;
+    position: absolute;
+    position: static;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .light{
+      display: grid;
+      width: 70%;
+      margin: 0 auto;
+      color: #fff;
+      grid-template-columns: 2fr 6fr 1fr;
+      grid-auto-rows: minmax(50px, auto);
+      img{
+        width: 60%;
+      }
+      .movie-info{
+        h2, h4 {
+          font-family: $title;
+        }
+        h2 {
+          font-size: 2rem;
+          color: $yellow;
+        }
+        h4 {
+          font-size: 1.3rem;
+        }
+        p{
+          font-family: $text;
+          font-size: 1rem;
+        }
+      }
+      i.ion-ios-close-outline{
+        font-size: 3rem;
+        justify-self: flex-end;
+        top: 60px;
+        right: 200px;
+      }
+    }
+    .video{
+      width: 70%;
+      height: 100%;
+      margin: 0 auto;
+      video{
+        width: 100%;
+      }
+    }
   }
 }
