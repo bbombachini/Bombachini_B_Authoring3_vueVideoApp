@@ -4,3 +4,4 @@ node_modules
 main.css.map
 config.js
 public/videos
+public/music
