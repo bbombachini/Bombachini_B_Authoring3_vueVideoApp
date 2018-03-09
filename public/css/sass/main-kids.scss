@@ -208,7 +208,7 @@ header{
     img{
       width: 100%;
     }
-  }.movie-cover:hover{
+  }.cover:hover{
     h4{
       width: 100%;
       opacity: 1;
@@ -308,6 +308,66 @@ header{
       margin: 0 auto;
       video{
         width: 100%;
+      }
+    }
+  }
+  #box-wrapper{
+    @extend #light-wrapper;
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .box{
+      @extend .light;
+      h2{
+        font-family: $title;
+        font-size: 3rem;
+        font-style: italic;
+        color: $yellow;
+      }
+    }
+    .tracklist{
+      width: 80%;
+      margin: 20px auto;
+      border: 2px solid #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      .track{
+        display: inline-grid;
+        grid-template-columns: 2fr 1fr;
+        grid-auto-rows: auto;
+        p{
+          color:#fff;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          font-family: $text;
+          padding: 3px;
+        }
+      }
+      .track:nth-of-type(even){
+        background-color: rgba(160, 160, 160, 0.5);;
+      }
+      .album-info{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 20px;
+        img{
+          width: 50%;
+        }
+        h2{
+          font-family: $title;
+          font-size: 1.6rem;
+          color: #fff;
+        }
+        h4{
+          font-style: italic;
+          font-family: $text;
+          font-size: 1.3rem;
+          color: #fff;
+        }
       }
     }
   }

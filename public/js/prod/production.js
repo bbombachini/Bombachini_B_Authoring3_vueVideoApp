@@ -41,7 +41,7 @@
     fetch(url).then(function (resp) {
       return resp.json();
     }).then(function (data) {
-      console.log(data);
+      // console.log(data);
     }).catch(function (error) {
       console.log(error);
     });
@@ -129,7 +129,7 @@
     fetch(url).then(function (resp) {
       return resp.json();
     }).then(function (data) {
-      console.log(data);
+      // console.log(data);
       var container = document.querySelector('#movies');
       while (container.firstChild) {
         container.removeChild(container.firstChild);

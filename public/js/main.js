@@ -40,7 +40,7 @@
     fetch(url)
       .then((resp) => resp.json())
         .then((data) =>{
-          console.log(data);
+          // console.log(data);
         })
         .catch(function(error) {
           console.log(error);
@@ -157,7 +157,7 @@
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           let container = document.querySelector('#movies');
           while(container.firstChild) {
                container.removeChild(container.firstChild);

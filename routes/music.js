@@ -12,12 +12,12 @@ router.use(bodyParser.urlencoded({ extended: false}));
 router.use(bodyParser.json());
 
 router.get('/', function(req, res, next) {
-  // if(config.kids){
-    //For kids, select all that match the properly age rating
-  //   var getMusic = `SELECT * FROM tbl_movies m, tbl_age_rating ar, tbl_mov_ara ma WHERE m.movies_id = ma.movies_id AND ar.arating_id = ma.arating_id AND (ar.arating_id="1" OR ar.arating_id="2" OR ar.arating_id="3")`;
-  // } else {
+  if(config.kids){
+    // For kids, select all that match pop music only
+    var getMusic = `SELECT * FROM tbl_artist a, tbl_albums al, tbl_musics m, tbl_art_mgen am, tbl_mgenre mg WHERE a.artist_id = al.artist_id AND m.albums_id = al.albums_id AND am.artist_id = a.artist_id AND mg.mus_gen_id = "3";`;
+  } else {
     var getMusic = `SELECT * FROM tbl_artist`;
-  // }
+  }
   connect.query(getMusic, (err, result) => {
     if(err) {
       throw err; console.log(err);
