@@ -13,6 +13,7 @@ router.use(bodyParser.json());
 router.get('/', function(req, res, next) {
   res.render('content', {
     title: title,
+    kids: config.kids,
     msg: message
   });
 });

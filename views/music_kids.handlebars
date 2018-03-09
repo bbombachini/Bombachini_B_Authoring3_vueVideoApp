@@ -1,0 +1,19 @@
+<section class="content-section">
+  <div class="header">
+    <img src="images/icon_music.png" alt="My movies icon">
+    <h1>Kids Music</h1>
+  </div>
+
+  <div id="music">
+  {{#each music}}
+    <div id="{{ artist_id }}" class="cover">
+      <h4>{{ artist_name }}</h4>
+      <img src="images/{{ artist_photo }}" alt="{{ artist_name }}">
+    </div>
+  {{/each}}
+  </div>
+
+</section>
+<div class="lightbox">
+
+</div>

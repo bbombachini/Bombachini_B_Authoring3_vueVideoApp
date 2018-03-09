@@ -5,7 +5,7 @@ var config = {
   host: "localhost",
   database: "db_videoapp",
 
-  kids: true
+  kids: false
 }
 
 
