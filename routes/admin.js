@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 router.use(bodyParser.json());
 
 router.get('/', function(req, res, next) {
-  res.render('kids', { title: 'Kids Mode | Roku Entertainment Partner' });
+  res.render('admin', { title: 'Admin | Roku Entertainment Partner' });
 });
 
 module.exports = router;

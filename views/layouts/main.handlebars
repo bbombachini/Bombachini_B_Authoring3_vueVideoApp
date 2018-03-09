@@ -6,7 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Montserrat:300" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  {{#if kids}}
+    <link rel="stylesheet" href="css/kids.css">
+    {{else}}
+    <link rel="stylesheet" href="css/main.css">
+  {{/if}}
+
   <title>{{ title }}</title>
 </head>
 <body>
