@@ -127,6 +127,10 @@
                  </div>`;
                container.innerHTML += newInfo;
              });
+             let coverMovie = document.querySelectorAll('.movie-cover');
+             coverMovie.forEach((movie) => {
+               movie.addEventListener('click', getSingle, false);
+             });
         })
         .catch(function(error) {
           console.log(error);

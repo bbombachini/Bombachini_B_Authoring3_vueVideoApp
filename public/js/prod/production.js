@@ -111,6 +111,10 @@
         var newInfo = '<div id="' + movie.movies_id + '" class="movie-cover">\n                   <h4>' + movie.movies_title + '</h4>\n                   <img src="images/' + movie.movies_cover + '" alt="' + movie.movies_title + '">\n                 </div>';
         container.innerHTML += newInfo;
       });
+      var coverMovie = document.querySelectorAll('.movie-cover');
+      coverMovie.forEach(function (movie) {
+        movie.addEventListener('click', getSingle, false);
+      });
     }).catch(function (error) {
       console.log(error);
     });
