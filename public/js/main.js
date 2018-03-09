@@ -163,13 +163,13 @@
                container.removeChild(container.firstChild);
              }
              data.movie.forEach((movie) => {
-               let newInfo = `<div id="${movie.movies_id}" class="movie-cover">
+               let newInfo = `<div id="${movie.movies_id}" class="cover">
                    <h4>${movie.movies_title}</h4>
                    <img src="images/${movie.movies_cover}" alt="${movie.movies_title}">
                  </div>`;
                container.innerHTML += newInfo;
              });
-             let coverMovie = document.querySelectorAll('.movie-cover');
+             let coverMovie = document.querySelectorAll('.cover');
              coverMovie.forEach((movie) => {
                movie.addEventListener('click', getSingle, false);
              });
