@@ -21,17 +21,6 @@
       return resp.json();
     }).then(function (data) {
       console.log(data);
-      // let container = document.querySelector('#movies');
-      // while(container.firstChild) {
-      //      container.removeChild(container.firstChild);
-      //    }
-      //    data.movie.forEach((movie) => {
-      //      let newInfo = `<div id="${movie.movies_id}" class="movie-cover">
-      //          <h4>${movie.movies_title}</h4>
-      //          <img src="images/${movie.movies_cover}" alt="${movie.movies_title}">
-      //        </div>`;
-      //      container.innerHTML += newInfo;
-      //    });
     }).catch(function (error) {
       console.log(error);
     });
@@ -52,10 +41,9 @@
 
   function openSingle(data) {
     var movieData = data.movie[0];
-    // let container = document.querySelector('body');
     var container = document.body;
     var lightbox = document.querySelector('.lightbox');
-    var light = '<div id="light-wrapper">\n      <div class="light">\n        <div><img src="images/' + movieData.movies_cover + '"></div>\n        <div class="movie-info">\n          <h2>' + movieData.movies_title + '</h2>\n          <h4>' + movieData.movies_year + '</h4>\n          <p>' + movieData.movies_storyline + '</p>\n        </div>\n        <i class="ion-ios-close-outline"></i>\n      </div>\n      <figure class="video"><video controls src="videos/' + movieData.movies_trailer + '"></video></figure>\n    </div>';
+    var light = '<div id="light-wrapper">\n      <div class="light">\n        <div><img src="images/' + movieData.movies_cover + '"></div>\n        <div class="movie-info">\n          <h2>' + movieData.movies_title + '<span>(' + movieData.movies_year + ')</span></h2><h4><i class="ion-android-star"></i>' + movieData.movies_rating + '</4>\n          <span>' + movieData.genre_name + '</span>\n          <p>' + movieData.movies_storyline + '</p>\n          <div class="social-media"><i class="ion-social-facebook"></i><i class="ion-social-instagram"></i><i class="ion-social-twitter"></i></div>\n        </div>\n        <i class="ion-ios-close-outline"></i>\n      </div>\n      <figure class="video"><video controls src="videos/' + movieData.movies_trailer + '"></video></figure>\n    </div>';
     lightbox.style.display = "block";
     container.classList.add('no-scroll');
     lightbox.innerHTML = light;
@@ -69,13 +57,11 @@
   }
 
   function getGenre() {
-    // console.log('from getMyths');
     var url = 'movies/genre';
 
     fetch(url).then(function (resp) {
       return resp.json();
     }).then(function (data) {
-      // console.log(data);
       var select = document.querySelector('.select');
       data.genre.forEach(function (item) {
         var option = '<option value="' + item.genre_id + '">' + item.genre_name + '</option>';
@@ -91,14 +77,7 @@
     var select = document.querySelector('.select');
     var value = select.value;
     var url = 'movies/genre/' + value;
-    console.log(value);
-    //
-    // if(value == 0){
-    //   getMovies.call();
-    //   return;
-    // } else {
-    // url = 'movies/genre/'+value;
-    // }
+
     fetch(url).then(function (resp) {
       return resp.json();
     }).then(function (data) {

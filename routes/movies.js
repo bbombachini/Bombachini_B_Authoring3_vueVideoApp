@@ -83,7 +83,7 @@ router.get('/genre/:id', (req, res) => {
 
 router.get('/:id', function(req, res, next) {
   console.log(req.params.id);
-  connect.query(`SELECT * FROM tbl_movies WHERE movies_id="${req.params.id}"`, (err, result) => {
+  connect.query(`SELECT * FROM tbl_movies m, tbl_genre g, tbl_mov_gen mg WHERE m.movies_id = mg.movies_id AND g.genre_id = mg.genre_id AND m.movies_id = mg.movies_id AND m.movies_id="${req.params.id}"`, (err, result) => {
     if(err) {
       throw err; console.log(err);
     } else {

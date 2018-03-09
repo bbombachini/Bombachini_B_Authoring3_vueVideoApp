@@ -117,63 +117,67 @@ header{
   }
 }
 
-.kids-section{
+.content-section{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
+  background-color: #fff;;
   text-align: left;
   width: 80%;
-  margin: 0 auto;
-  .header{
-    display: grid;
-    padding: 50px;
-    grid-template-columns: 200px 1fr;
-    img{
-      width: 70%;
-    }
-  }
+  margin: 60px auto;
   h1,h2{
     font-family: $title;
     color: $purple;
   }
   h1 {
     font-size: 2.5rem;
-    padding: 50px;
+    padding: 20px 0;
   }
   h2 {
     font-size: 1.4rem;
     padding: 20px;
   }
+  .header{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    margin: 20px 0;
+    img {
+      width: 100px;
+    }
+  }
   .options{
     width: 100%;
     margin: 0 auto;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .option {
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+    .option{
       display: flex;
       flex-direction: column;
+      text-align: center;
       justify-content: center;
-      img{
-        width: 70%;
-      }
-      button {
-        border-radius: 20px;
-        padding: 10px;
-        margin: 10px 0;
-        background-color: $purple;
+      background-color: $purple;
+      padding: 10px;
+      margin: 10px 0;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: $title;
+      font-size: 3rem;
+      h2 {
+        font-size: 3rem;
         color: #fff;
-        text-transform: uppercase;
-        font-family: $title;
-        font-size: 1.3rem;
+      }
+      i{
+        font-size: 6rem;
       }
     }
   }
   label {
     font-family: $text;
-    color: $lightgray;
+    color: $purple;
     font-size: 1.1rem;
   }
 }
@@ -256,6 +260,10 @@ header{
         h2 {
           font-size: 2rem;
           color: $yellow;
+          span{
+            font-style: italic;
+            margin-left: 10px;
+          }
         }
         h4 {
           font-size: 1.3rem;
@@ -265,11 +273,33 @@ header{
           font-size: 1rem;
         }
       }
-      i.ion-ios-close-outline{
+      .ion-ios-close-outline{
         font-size: 3rem;
         justify-self: flex-end;
         top: 60px;
         right: 200px;
+      }
+      span{
+        font-style: italic;
+      }
+      .social-media {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        i {
+          font-size: 1.7rem;
+          border: 2px solid #fff;
+          margin: 0 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 50px;
+          text-align: center;
+          height: 50px;
+          border-radius: 50px;
+          justify-self: flex-end;
+        }
       }
     }
     .video{
