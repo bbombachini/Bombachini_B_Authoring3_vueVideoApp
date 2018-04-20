@@ -1,14 +1,62 @@
-<section class="movies-section">
+<section id="app">
+  <section class="movies-section">
+      <h1>${message}</h1>
+
+    <!-- <fieldset>
+      <label for="input">Select category:</label>
+        <select class="select">
+            <option value="0">All</option>
+      </select>
+    </fieldset> -->
+    <!-- <div id="movies">
+    {{#each movies}}
+      <div id="{{ movies_id }}" class="cover">
+        <h4>{{ movies_title }}</h4>
+        <img src="images/{{ movies_cover }}" alt="{{ movies_title }}">
+      </div>
+    {{/each}}
+    </div> -->
+
+  </section>
+  <!-- <div class="movie-wrapper"> -->
+    <!-- <aside>
+      <h4 class="movie-title">{{ defaultMovie.movies_title }}</h4>
+      <span class="movie-year">
+        {{ defaultMovie.movies_year }} &#8226; {{ defaultMovie.movies_runtime }}
+      </span>
+
+      <i class="movie-genre"> {{ defaultMovie.genre_name }}</i>
+    </aside> -->
+    <!-- <p>${message}</p> -->
+    <!-- <video autoplay>
+      <source src="/video/{{ defaultMovie.movies_trailer }}" type="video/mp4">
+    </video> -->
+  <!-- </div> -->
+  <!-- load in all of the thumbnails for each genre -->
+  <!-- <section class="genre-lists" v-for="genre in genres">
+    <div v-if="genre.movies.length > 0">
+      <div class="genre-item">
+        <h6 class="genre-name">${genre.name}</h6>
+        <div class="movie-list" v-for="movie in genre.movies">
+          <a :href="'/movies/' + movie.movies_id + '/' + movie.movies_trailer">
+            <img class="movie-thumb" :src=" 'images/' + movie.movies_cover" :alt="movie.movies_title">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</section>
+
+
+
+
+<!-- <section class="movies-section">
   <h1>Movies</h1>
 
   <fieldset>
     <label for="input">Select category:</label>
       <select class="select">
           <option value="0">All</option>
-        <!-- WHY EACH DOESNT WORK HERE?? -->
-        <!-- {{#each genre}}
-          <option value="{{ genre_id }}">{{ genre_name }}</option>
-        {{/each}} -->
     </select>
   </fieldset>
   <div id="movies">
@@ -23,4 +71,4 @@
 </section>
 <div class="lightbox">
 
-</div>
+</div> -->
