@@ -20,13 +20,38 @@ exports.get_all_movies = (req, res) => {
       if(err){
         return console.log(err.message);
       } else {
-        console.log(result);
+        // console.log(result);
         res.render(renderPage , {
           title: 'Movies | Roku Entertainment Partner',
           kids: connect.kids,
           movies : JSON.stringify(result),
           mainpage: true,
           moviepage: false
+        });
+      }
+    });
+  });
+};
+
+exports.get_all_genres = (req, res) => {
+  connect.getConnection((err, connection) => {
+    connection.release();
+    if(err) {
+      return console.log(err.message);
+    }
+    if(connect.kids){
+       //Remove the genres crime and horror from kids view
+       var getGenre = `SELECT * FROM tbl_genre WHERE NOT (genre_id="4" OR genre_id="7")`;
+     } else {
+       var getGenre = `SELECT * FROM tbl_genre`;
+     }
+    connect.query(getGenre, (err, result) => {
+      if(err){
+        return console.log(err.message);
+      } else {
+        // console.log(result);
+        res.json({
+          genres: result
         });
       }
     });

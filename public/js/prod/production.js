@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 (function () {
 
@@ -6,13 +6,13 @@
   //   let movies = document.querySelector('.movies');
   //   movies.addEventListener('click', getMovies, false);
   // }
-  // if(document.querySelector('#movies')){
-  //   let coverMovie = document.querySelectorAll('.cover');
-  //   coverMovie.forEach((movie) => {
-  //     movie.addEventListener('click', getSingle, false);
-  //   });
-  //   getGenre.call();
-  // }
+  if (document.querySelector('#movies')) {
+    //   let coverMovie = document.querySelectorAll('.cover');
+    //   coverMovie.forEach((movie) => {
+    //     movie.addEventListener('click', getSingle, false);
+    //   });
+    getGenre.call();
+  }
   //
   // if(document.querySelector('#music')){
   //   let artist = document.querySelectorAll('.cover');
@@ -134,23 +134,23 @@
   //   }
   // }
   //
-  // function getGenre(){
-  // let url = 'movies/genre';
-  //
-  // fetch(url)
-  //   .then((resp) => resp.json())
-  //   .then((data) => {
-  //     let select = document.querySelector('.select');
-  //     data.genre.forEach((item) => {
-  //       let option = `<option value="${item.genre_id}">${item.genre_name}</option>`;
-  //       select.innerHTML += option;
-  //     });
-  //     select.addEventListener('change', filterMovies, false);
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   });
-  // }
+  function getGenre() {
+    var url = '/genres';
+
+    fetch(url).then(function (resp) {
+      return resp.json();
+    }).then(function (data) {
+      // console.log(data);
+      var select = document.querySelector('.select');
+      data.genres.forEach(function (item) {
+        var option = '<option value="' + item.genre_id + '">' + item.genre_name + '</option>';
+        select.innerHTML += option;
+      });
+      // select.addEventListener('change', filterMovies, false);
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
   //
   // function filterMovies(e){
   //   let select = document.querySelector('.select');
@@ -181,6 +181,5 @@
   //         console.log(error);
   //       });
   // }
-
 
 })();

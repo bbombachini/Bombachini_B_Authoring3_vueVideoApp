@@ -1,5 +1,5 @@
-# videoApp
-Node-based video app served with Express and using Handlebars as rendering engine.
+# Vue Video App
+Node-based video app served with Vue.js, Express and Handlebars as a rendering engine.
 
 ## Getting Started
 
@@ -33,7 +33,7 @@ grunt watch
 Furthermore, it is necessary to import the database content located on the folder called database to local application. It is possible to import it using PHPMyAdmin interface or via command line:
 
 ```
-mysql -h localhost -u <user> -p <password> <database name> < db_videoapp.sql
+mysql -h localhost -u <user> -p <password> <database name> < db_vueVideoApp.sql
 ```
 
 After importing database content to local database application, it is necessary to configure the credentials to connect to your database. In the root folder there a file called <code>config-sample.js</code>. Copy or rename this file to <code>config.js</code> in the command line:

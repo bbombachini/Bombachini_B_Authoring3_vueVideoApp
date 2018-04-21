@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/movies', videoController.get_all_movies );
+router.get('/genres', videoController.get_all_genres);
 
 module.exports = router;
 
