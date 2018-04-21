@@ -8,12 +8,13 @@ const myApp = {
   //     })
   //   })
   // },
-  //
+
   vm: new Vue({
     el : '#app',
     data : {
-      message: "Movies"
+      message: "Movies",
       // genres: []
+      movies: appData.movies
     },
     methods : {
 

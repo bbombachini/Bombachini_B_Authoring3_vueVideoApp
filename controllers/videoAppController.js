@@ -20,7 +20,7 @@ exports.get_all_movies = (req, res) => {
       if(err){
         return console.log(err.message);
       } else {
-        console.log(result);
+        // console.log(result);
         res.render(renderPage , {
           title: 'Movies | Roku Entertainment Partner',
           kids: connect.kids,
