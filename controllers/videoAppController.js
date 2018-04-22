@@ -6,7 +6,6 @@ var renderPage = (connect.kids) ? 'movies_kids' : 'movies';
 
 exports.get_all_movies = (req, res) => {
   connect.getConnection((err, connection) => {
-    connection.release();
     if(err) {
       return console.log(err.message);
     }
@@ -17,6 +16,7 @@ exports.get_all_movies = (req, res) => {
       var getMovies = `SELECT * FROM tbl_movies`;
     }
     connect.query(getMovies, (err, result) => {
+      connection.release();
       if(err){
         return console.log(err.message);
       } else {
@@ -35,7 +35,6 @@ exports.get_all_movies = (req, res) => {
 
 exports.get_all_genres = (req, res) => {
   connect.getConnection((err, connection) => {
-    connection.release();
     if(err) {
       return console.log(err.message);
     }
@@ -46,6 +45,7 @@ exports.get_all_genres = (req, res) => {
        var getGenre = `SELECT * FROM tbl_genre`;
      }
     connect.query(getGenre, (err, result) => {
+      connection.release();
       if(err){
         return console.log(err.message);
       } else {
@@ -57,6 +57,55 @@ exports.get_all_genres = (req, res) => {
     });
   });
 };
+
+exports.get_single_movie = (req, res) => {
+  console.log(req.params.id, req.params.movie);
+  connect.getConnection((err, connection) => {
+    if(err) {
+      return console.log(err.message);
+    }
+    let movieQuery = `SELECT * FROM tbl_movies WHERE movies_id = "${req.params.id}";`;
+    connect.query(movieQuery, (err, rows) => {
+      if(err) {
+        return console.log(err.message);
+      }
+      let commentQuery = `SELECT * FROM tbl_comments WHERE movies_id = "${req.params.id}";`;
+      connect.query(commentQuery, (err, result) => {
+        if(err) {
+          return console.log(err.message);
+        } else {
+          res.render('moviepage', {
+            movie:req.params.id,
+            // moviesrc: req.params.movie,
+            movies: JSON.stringify(rows),
+            mainpage: false,
+            moviepage: true,
+            comments: JSON.stringify(result)
+          });
+        }
+      })
+    })
+  })
+};
+
+//
+// exports.post_one_comment = (req, res) => {
+//   console.log('hit post comment');
+//   connect.getConnection((err, connection) => {
+//     if(err) {
+//       return console.log(err.message);
+//     }
+//     let insertQuery = `INSERT INTO tbl_comments (comments_id, comments_auth, comments_copy, comments_date, comments_movie, comments_rating) VALUES (NULL, NULL, "${req.body.comment}", CURRENT_TIMESTAMP(), "${req.body.id}", "${req.body.stars}");`;
+//
+//     connect.query(insertQuery, (err, rows) => {
+//       if(err) {
+//         return console.log(err.message);
+//       }
+//       console.log(rows);
+//       res.json(rows);
+//     })
+//   })
+// };
 
 // connect.getConnection((err, connection) => {
 //   if(err) {
@@ -78,44 +127,3 @@ exports.get_all_genres = (req, res) => {
 //     });
 //   })
 // })
-
-// exports.get_one_movie = (req, res) => {
-//   console.log(req.params.id, req.params.movie);
-//   connect.getConnection((err, connection) => {
-//     if(err) {
-//       return console.log(err.message);
-//     }
-//     let movieQuery = `SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}";`;
-//     connect.query(movieQuery, (err, rows) => {
-//       connection.release(); //let somebody else use this connection
-//       if(err) {
-//         return console.log(err.message);
-//       }
-//       res.render('moviepage', {
-//         movie:req.params.id,
-//         moviesrc: req.params.movie,
-//         data: JSON.stringify(rows),
-//         mainpage: false,
-//         moviepage: true
-//       });
-//     })
-//   })
-// };
-//
-// exports.post_one_comment = (req, res) => {
-//   console.log('hit post comment');
-//   connect.getConnection((err, connection) => {
-//     if(err) {
-//       return console.log(err.message);
-//     }
-//     let insertQuery = `INSERT INTO tbl_comments (comments_id, comments_auth, comments_copy, comments_date, comments_movie, comments_rating) VALUES (NULL, NULL, "${req.body.comment}", CURRENT_TIMESTAMP(), "${req.body.id}", "${req.body.stars}");`;
-//
-//     connect.query(insertQuery, (err, rows) => {
-//       if(err) {
-//         return console.log(err.message);
-//       }
-//       console.log(rows);
-//       res.json(rows);
-//     })
-//   })
-// };
