@@ -21,11 +21,10 @@ Vue.component('review-stars', {
 });
 
 
-var myVideoApp = {
-  // do more non-VM related stuff here
+var videoApp = {
   addReviews(data){
     // process the review data and push it into the Vue instance
-    data.forEach(review => myVideoApp.vm.reviews.push(review));
+    data.forEach(review => videoApp.vm.reviews.push(review));
   },
 
   vm: new Vue({
@@ -35,13 +34,12 @@ var myVideoApp = {
       reviews: [],
       numStars: 0,
       review: "",
-      testMessage: "testing to see if this works"
+      movies: appData.movies,
+      comments: commentData.comments
     },
     methods: {
       // do a post with all the new review stuff
       addReview(){
-        // do a fetch here
-        // debugger;
         let movieId = document.querySelector('.movId').textContent; //grab the movie id
 
         axios.post('/api', {
@@ -66,29 +64,9 @@ var myVideoApp = {
         this.review = "";
         this.numStars = 0;
 
-        // fetch('/api', {
-        //     method: 'post',
-        //     headers: {
-        //       'Accept': 'application/json, text-plain, */*',
-        //       'Content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //       id: movieId,
-        //       stars: this.numStars,
-        //       comment: this.review
-        //     })
-        //   })
-        //   .then((resp) => resp.json())
-        //   .then((data) => {
-        //     console.log(data);
-        //   })
-        //   .catch((erro)=> {
-        //     console.log(error);
-        //   });
-
       }
     }
   })
 }
 
-myVideoApp.addReviews(appData.movies);
+videoApp.addReviews(commentData.comments);

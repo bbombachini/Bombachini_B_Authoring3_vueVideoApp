@@ -9,8 +9,10 @@
     </fieldset>
     <div id="movies">
       <div v-for="movie in movies" :id=movie.movies_id class="cover">
-        <h4>${movie.movies_title}</h4>
-        <img :src='"images/"+ movie.movies_cover' :alt="movie.movies_title">
+        <a :href="'/movies/' + movie.movies_id">
+          <h4>${movie.movies_title}</h4>
+          <img :src='"images/"+ movie.movies_cover' :alt="movie.movies_title">
+        </a>
       </div>
     </div>
   </section>

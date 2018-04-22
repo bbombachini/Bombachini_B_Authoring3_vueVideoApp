@@ -222,37 +222,24 @@ header{
   overflow:hidden;
 }
 
-.lightbox{
-  z-index: 100;
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: scroll;
-  width: 100vw;
-  height: 100%;
-  background-color: rgba(15, 15, 15, 0.9);
-  #light-wrapper{
-    padding: 50px 0;
-    position: absolute;
-    position: static;
-    left: 0;
-    top: 0;
+.back-button {
+  i {
+    font-size: 30px;
+    line-height: 50px;
+    margin: 20px;
+  }
+}
+
+  #wrapper{
+    padding: 30px 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     .light{
+      width: 60%;
+      margin: 40px auto;
       display: grid;
-      width: 70%;
-      margin: 0 auto;
-      color: #fff;
-      grid-template-columns: 2fr 6fr 1fr;
-      grid-auto-rows: minmax(50px, auto);
+      grid-template-columns: 1fr 3fr;
       img{
-        width: 60%;
+        width: 80%;
       }
       .movie-info{
         h2, h4 {
@@ -260,24 +247,19 @@ header{
         }
         h2 {
           font-size: 2rem;
-          color: $yellow;
+          color: $purple;
           span{
             margin-left: 10px;
           }
         }
         h4 {
           font-size: 1.3rem;
+          color: $yellow;
         }
         p{
           font-family: $text;
           font-size: 1rem;
         }
-      }
-      .ion-ios-close-outline{
-        font-size: 3rem;
-        justify-self: flex-end;
-        top: 60px;
-        right: 200px;
       }
       span{
         font-style: italic;
@@ -287,9 +269,11 @@ header{
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+        cursor: pointer;
         i {
           font-size: 1.7rem;
-          border: 2px solid #fff;
+          border: 2px solid $yellow;
+          color: $yellow;
           margin: 0 5px;
           display: flex;
           flex-direction: column;
@@ -303,7 +287,7 @@ header{
       }
     }
     .video{
-      width: 70%;
+      width: 80%;
       height: 100%;
       margin: 0 auto;
       video{
@@ -312,7 +296,7 @@ header{
     }
   }
   #box-wrapper{
-    @extend #light-wrapper;
+    @extend #wrapper;
     margin: 0 auto;
     width: 70%;
     display: flex;
@@ -371,9 +355,59 @@ header{
       }
     }
   }
+
+.review-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: $text;
+  color: $gray;
+  .comments{
+    width:65%;
+    margin: 0 auto;
+    display:inline-block;
+  }
+  .comments>div{
+    padding:0 1em;
+    margin-bottom:1.75em;
+  }
+  .star-rating-checkbox{position:absolute;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0}
+  .star-rating-star{display:inline-block;padding:3px;vertical-align:middle;line-height:1;font-size:2.25em;color:#ABABAB;-webkit-transition:color .2s ease-out;transition:color .2s ease-out}
+  .star-rating-star:hover{cursor:pointer}
+  .star-rating-star.is-selected{color:$yellow;}
+  .star-rating-star.is-disabled:hover{cursor:default}.add-comment{float:right;width:45%;display:inline-block;padding-left:1.5em}
+  .add-comment label{margin-left:0.8em;font-size:1.4em;position:relative;top:-5px}
+  .add-comment input[type=range]{margin:1em 0; visibility: hidden;}
+  .add-comment input[type=submit]{padding:0.7em 1em;border-radius:8px;background-color:$yellow;color:white;font-weight:bold;font-size:1.25em;margin-top:1em}
+  .add-comment textarea{
+    display:block;
+    width:90%;
+    height:130px;
+    padding:0.75em;
+    line-height:1.5;
+    border: 1px solid $gray;
+  }
+  .review-heading{font-size:1.5em; margin: 30px 0;}
+  .simplebar-scrollbar:before{background:white}
+
 }
 
-#music{
-  @extend #movies;
-  grid-gap: 20px;
+footer {
+  height: 6vw;
+  background-color: $gray;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-family: $text;
+  line-height: 6vw;
+  justify-content: space-around;
+  align-content: center;
+  ul {
+    li{
+      display: inline-flex;
+      padding: 0 20px;
+      i{
+        font-size: 20px;
+      }
+    }
+  }
 }
