@@ -60,10 +60,8 @@ var videoApp = {
           comments_rating: this.numStars,
           comments_date: `${ new Date() }`
         });
-
         this.review = "";
         this.numStars = 0;
-
       }
     }
   })
