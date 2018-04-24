@@ -20,6 +20,22 @@ Vue.component('review-stars', {
   }
 });
 
+// Vue.component( 'social-sharing' ,{
+//   template: `<network network="facebook">
+//      <i class="ion-social-facebook"></i>Facebook
+//    </network>
+//    <network network="instagram">
+//      <i class="ion-social-instagram"></i>Instagram
+//    </network>
+//    <network network="twitter">
+//      <i class="ion-social-twitter"></i>Twitter
+//    </network>`,
+//    props: ['network'],
+//    data: {
+//
+//    }
+// });
+
 
 var videoApp = {
   addReviews(data){
