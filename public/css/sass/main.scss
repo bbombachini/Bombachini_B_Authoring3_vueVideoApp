@@ -270,20 +270,23 @@ header{
         flex-direction: row;
         justify-content: flex-end;
         cursor: pointer;
-        i {
-          font-size: 1.7rem;
-          border: 2px solid $yellow;
-          color: $yellow;
-          margin: 0 5px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          width: 50px;
-          text-align: center;
-          height: 50px;
-          border-radius: 50px;
-          justify-self: flex-end;
+        div {
+          padding: 0 5px;
         }
+        // i {
+        //   font-size: 1.7rem;
+        //   border: 2px solid $yellow;
+        //   color: $yellow;
+        //   margin: 0 5px;
+        //   display: flex;
+        //   flex-direction: column;
+        //   justify-content: center;
+        //   width: 50px;
+        //   text-align: center;
+        //   height: 50px;
+        //   border-radius: 50px;
+        //   justify-self: flex-end;
+        // }
       }
     }
     .video{
@@ -357,6 +360,7 @@ header{
   }
 
 .review-section{
+  padding-bottom: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: $text;

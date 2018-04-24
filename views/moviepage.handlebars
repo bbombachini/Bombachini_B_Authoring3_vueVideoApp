@@ -12,7 +12,13 @@
                <h4><i class="ion-android-star"></i>${movie.movies_rating}</h4>
                <span>${movie.genre_name}</span>
                <p>${movie.movies_storyline}</p>
-               <div class="social-media"><i class="ion-social-facebook"></i><i class="ion-social-instagram"></i><i class="ion-social-twitter"></i></div>
+               <div class="social-media">
+                 <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                 <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a></div>
+                 <div><div class="g-plus" data-action="share" data-annotation="bubble"></div></div>
+              </div>
+               <!-- <social-sharing class="social-media" @open="open()" >
+               </social-sharing> -->
              </div>
          </div>
        </div>
