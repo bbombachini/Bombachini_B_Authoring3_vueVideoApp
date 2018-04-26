@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2018 at 03:56 AM
+-- Generation Time: Apr 24, 2018 at 05:21 AM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -42,6 +42,39 @@ INSERT INTO `tbl_age_rating` (`arating_id`, `arating_name`, `arating_desc`) VALU
 (3, 'PG-13', 'PG-13 – Parents Strongly Cautioned\r\nSome material may be inappropriate for children under 13. Parents are urged to be cautious. Some material may be inappropriate for pre-teenagers.'),
 (4, 'R', 'R – Restricted\r\nUnder 17 requires accompanying parent or adult guardian. Contains some adult material. Parents are urged to learn more about the film before taking their young children with them. '),
 (5, 'NC-17', 'NC-17 – Adults Only\r\nNo One 17 and Under Admitted. Clearly adult. Children are not admitted. ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_comments`
+--
+
+CREATE TABLE `tbl_comments` (
+  `comments_id` mediumint(8) UNSIGNED NOT NULL,
+  `comments_copy` text NOT NULL,
+  `comments_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `movies_id` int(11) NOT NULL,
+  `comments_rating` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_comments`
+--
+
+INSERT INTO `tbl_comments` (`comments_id`, `comments_copy`, `comments_date`, `movies_id`, `comments_rating`) VALUES
+(13, 'I didn\'t like it', '2018-04-06 15:51:22', 3, 1),
+(14, 'Cool', '2018-04-06 15:53:21', 2, 2),
+(15, 'Loved it', '2018-04-09 19:16:56', 2, 3),
+(16, 'Amaaaazing', '2018-04-09 19:35:33', 2, 5),
+(19, 'Best movie I\'ve ever seen!', '2018-04-22 05:11:44', 6, 5),
+(20, 'Funny but not so good as other recent animations.', '2018-04-22 05:18:34', 4, 3),
+(21, 'Nice movie, lots of action, fun to watch...', '2018-04-22 05:19:10', 5, 3),
+(22, 'I LOVE Logan and Wolverine... but why he died in the end??? So sad ...', '2018-04-22 05:20:03', 7, 2),
+(23, 'Meh... I thought it was better.', '2018-04-22 05:20:27', 8, 2),
+(24, 'Loooooooved it!', '2018-04-24 00:20:19', 6, 5),
+(25, 'Cool movie, I just wonder it could more about Logan than his daughter.... oooooops, spoiler!', '2018-04-24 03:11:21', 7, 4),
+(26, 'Confusing...', '2018-04-24 03:11:47', 1, 3),
+(27, 'Action, sexy appeal, great story, I liked it!\n', '2018-04-24 03:12:21', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -173,6 +206,12 @@ ALTER TABLE `tbl_age_rating`
   ADD PRIMARY KEY (`arating_id`);
 
 --
+-- Indexes for table `tbl_comments`
+--
+ALTER TABLE `tbl_comments`
+  ADD PRIMARY KEY (`comments_id`);
+
+--
 -- Indexes for table `tbl_genre`
 --
 ALTER TABLE `tbl_genre`
@@ -205,6 +244,12 @@ ALTER TABLE `tbl_mov_gen`
 --
 ALTER TABLE `tbl_age_rating`
   MODIFY `arating_id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_comments`
+--
+ALTER TABLE `tbl_comments`
+  MODIFY `comments_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_genre`
